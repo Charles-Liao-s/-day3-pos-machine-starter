@@ -7,6 +7,12 @@ import java.util.Map;
 
 
 public class PosMachine {
+
+    public int calculateTotalPrice(List<ReceiptItem> receiptItems) {
+        return receiptItems.stream()
+                .mapToInt(ReceiptItem::getSubTotal)
+                .sum();
+    }
     public List<ReceiptItem> decodeToItems(List<String> barcodes) {
         List<Item> allItems = ItemsLoader.loadAllItems();
 
@@ -33,10 +39,5 @@ public class PosMachine {
 
         return receiptItems;
     }
-
-    public static void main(String[] args) {
-
-    }
-
 }
 
