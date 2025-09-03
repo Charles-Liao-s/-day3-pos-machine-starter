@@ -13,6 +13,11 @@ public class PosMachine {
                 .mapToInt(ReceiptItem::getSubTotal)
                 .sum();
     }
+    public Receipt calculateCost(List<String> barcodes) {
+        List<ReceiptItem> receiptItems = decodeToItems(barcodes);
+        int totalPrice = calculateTotalPrice(receiptItems);
+        return new Receipt(receiptItems, totalPrice);
+    }
     public List<ReceiptItem> decodeToItems(List<String> barcodes) {
         List<Item> allItems = ItemsLoader.loadAllItems();
 

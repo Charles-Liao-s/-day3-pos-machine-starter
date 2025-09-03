@@ -1,4 +1,3 @@
-// ReceiptItem.java
 package pos.machine;
 
 import java.util.Objects;
