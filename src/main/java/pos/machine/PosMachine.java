@@ -7,7 +7,13 @@ import java.util.Map;
 
 
 public class PosMachine {
-
+    public String generateItemsReceipt(ReceiptItem item) {
+        return String.format("Name: %s, Quantity: %d, Unit price: %d (yuan), Subtotal: %d (yuan)",
+                item.getName(),
+                item.getQuantity(),
+                item.getUnitPrice(),
+                item.getSubTotal());
+    }
     public int calculateTotalPrice(List<ReceiptItem> receiptItems) {
         return receiptItems.stream()
                 .mapToInt(ReceiptItem::getSubTotal)
