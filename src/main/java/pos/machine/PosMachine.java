@@ -7,6 +7,9 @@ import java.util.Map;
 
 
 public class PosMachine {
+    public String renderReceipt(Receipt receipt) {
+        return generateReceipt(receipt);
+    }
     public String generateReceipt(Receipt receipt) {
         StringBuilder sb = new StringBuilder();
         sb.append("***<store earning no money>Receipt***\n");
