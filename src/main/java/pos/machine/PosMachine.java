@@ -7,6 +7,10 @@ import java.util.Map;
 
 
 public class PosMachine {
+    public String printReceipt(List<String> barcodes) {
+        Receipt receipt = calculateCost(barcodes);
+        return renderReceipt(receipt);
+    }
     public String renderReceipt(Receipt receipt) {
         return generateReceipt(receipt);
     }
