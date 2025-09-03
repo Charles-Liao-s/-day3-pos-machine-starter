@@ -7,6 +7,20 @@ import java.util.Map;
 
 
 public class PosMachine {
+    public String generateReceipt(Receipt receipt) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("***<store earning no money>Receipt***\n");
+
+        for (ReceiptItem item : receipt.getReceiptItems()) {
+            sb.append(generateItemsReceipt(item)).append("\n");
+        }
+
+        sb.append("----------------------\n");
+        sb.append(String.format("Total: %d (yuan)\n", receipt.getTotalPrice()));
+        sb.append("**********************");
+
+        return sb.toString();
+    }
     public String generateItemsReceipt(ReceiptItem item) {
         return String.format("Name: %s, Quantity: %d, Unit price: %d (yuan), Subtotal: %d (yuan)",
                 item.getName(),
